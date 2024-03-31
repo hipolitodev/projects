@@ -17,9 +17,9 @@ const getButtonClasses = (
   const disabledClasses = isDisabled ? "text-disabled border-neutral-60" : "";
 
   const variantClasses = {
-    default: `${commonClasses} text-primary border-neutral-60 ${disabledClasses}`,
-    primary: `${commonClasses} text-white border-primary bg-primary ${disabledClasses}`,
-    link: `text-interactive ${disabledClasses}`,
+    default: `${commonClasses} text-primary border-neutral-60`,
+    primary: `${commonClasses} text-white border-primary bg-primary`,
+    link: `text-interactive`,
   }[variant];
 
   const sizeClasses = {
@@ -28,7 +28,7 @@ const getButtonClasses = (
     small: "px-3 py-1.5 text-sm",
   }[size];
 
-  return cx(variantClasses, sizeClasses);
+  return cx(variantClasses, sizeClasses, disabledClasses);
 };
 
 const Button = ({
@@ -42,7 +42,10 @@ const Button = ({
     <button
       {...props}
       disabled={isDisabled}
-      className={(getButtonClasses(variant, size, isDisabled), props.className)}
+      className={cx(
+        getButtonClasses(variant, size, isDisabled),
+        props.className
+      )}
     >
       {label}
     </button>

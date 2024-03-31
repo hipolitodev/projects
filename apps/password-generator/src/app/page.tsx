@@ -3,8 +3,8 @@ import Button from "@repo/ui/Button";
 const HelloWorld = () => {
   return (
     <div>
-      HelloWorld pasword-generator
-      <Button label="assa" />
+      <p>HelloWorld pasword-generator</p>
+      <Button className="bg-interactive p-4 rounded" label="assa" />
     </div>
   );
 };
