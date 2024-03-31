@@ -1,7 +1,52 @@
-const Button = () => {
-  return (
-    <div>Button placeholder</div>
-  )
+import cx from "classnames";
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  label: string;
+  variant?: "default" | "primary" | "link";
+  size?: "default" | "large" | "small";
+  isDisabled?: boolean;
 }
 
-export default Button
+const getButtonClasses = (
+  variant: string,
+  size: string,
+  isDisabled: boolean
+) => {
+  const commonClasses = "border rounded";
+  const disabledClasses = isDisabled ? "text-disabled border-neutral-60" : "";
+
+  const variantClasses = {
+    default: `${commonClasses} text-primary border-neutral-60 ${disabledClasses}`,
+    primary: `${commonClasses} text-white border-primary bg-primary ${disabledClasses}`,
+    link: `text-interactive ${disabledClasses}`,
+  }[variant];
+
+  const sizeClasses = {
+    default: "px-4 py-2 text-base",
+    large: "px-4 py-2 text-lg",
+    small: "px-3 py-1.5 text-sm",
+  }[size];
+
+  return cx(variantClasses, sizeClasses);
+};
+
+const Button = ({
+  label,
+  variant = "default",
+  size = "default",
+  isDisabled = false,
+  ...props
+}: ButtonProps) => {
+  return (
+    <button
+      {...props}
+      disabled={isDisabled}
+      className={(getButtonClasses(variant, size, isDisabled), props.className)}
+    >
+      {label}
+    </button>
+  );
+};
+
+export default Button;

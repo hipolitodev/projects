@@ -1,11 +1,12 @@
-import Button from "@repo/ui/Button"
+import Button from "@repo/ui/Button";
 
 const HelloWorld = () => {
   return (
-    <div>HelloWorld pasword-generator
-      <Button />
+    <div>
+      HelloWorld pasword-generator
+      <Button label="assa" />
     </div>
-  )
-}
+  );
+};
 
-export default HelloWorld
+export default HelloWorld;

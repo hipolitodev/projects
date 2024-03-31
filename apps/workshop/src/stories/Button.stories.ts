@@ -1,52 +1,46 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { Button } from './Button';
+import { StoryFn, Meta } from "@storybook/react";
+import Button, { ButtonProps } from "@repo/ui/Button"; // Ensure Button and ButtonProps are correctly imported
+import React from "react"; // Add missing import statement
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
-  title: 'Example/Button',
+export default {
+  title: "Components/Button",
   component: Button,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
+} as Meta;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: StoryFn<ButtonProps> = (args) =>
+  React.createElement(Button, { ...args });
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
+export const Default = Template.bind({});
+Default.args = {
+  label: "Default Button",
 };
 
-export const Secondary: Story = {
-  args: {
-    label: 'Button',
-  },
+export const Primary = Template.bind({});
+Primary.args = {
+  label: "Primary Button",
+  variant: "primary",
 };
 
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
+export const Link = Template.bind({});
+Link.args = {
+  label: "Link Button",
+  variant: "link",
 };
 
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
+export const Large = Template.bind({});
+Large.args = {
+  label: "Large Button",
+  size: "large",
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  label: "Small Button",
+  size: "small",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: "Disabled Button",
+  isDisabled: true,
 };
