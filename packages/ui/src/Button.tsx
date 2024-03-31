@@ -5,16 +5,11 @@ export interface ButtonProps
   label: string;
   variant?: "default" | "primary" | "link";
   size?: "default" | "large" | "small";
-  isDisabled?: boolean;
 }
 
-const getButtonClasses = (
-  variant: string,
-  size: string,
-  isDisabled: boolean
-) => {
+const getButtonClasses = (variant: string, size: string, disabled: boolean) => {
   const commonClasses = "border rounded";
-  const disabledClasses = isDisabled ? "text-disabled border-neutral-60" : "";
+  const disabledClasses = disabled ? "text-disabled border-neutral-60" : "";
 
   const variantClasses = {
     default: `${commonClasses} text-primary border-neutral-60`,
@@ -35,15 +30,13 @@ const Button = ({
   label,
   variant = "default",
   size = "default",
-  isDisabled = false,
   ...props
 }: ButtonProps) => {
   return (
     <button
       {...props}
-      disabled={isDisabled}
       className={cx(
-        getButtonClasses(variant, size, isDisabled),
+        getButtonClasses(variant, size, !!props.disabled),
         props.className
       )}
     >

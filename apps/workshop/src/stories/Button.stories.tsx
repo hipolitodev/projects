@@ -1,14 +1,12 @@
 import { StoryFn, Meta } from "@storybook/react";
-import Button, { ButtonProps } from "@repo/ui/Button"; // Ensure Button and ButtonProps are correctly imported
-import React from "react"; // Add missing import statement
+import Button, { ButtonProps } from "@repo/ui/Button";
 
 export default {
   title: "Components/Button",
   component: Button,
 } as Meta;
 
-const Template: StoryFn<ButtonProps> = (args) =>
-  React.createElement(Button, { ...args });
+const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -42,5 +40,5 @@ Small.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   label: "Disabled Button",
-  isDisabled: true,
+  disabled: true,
 };

@@ -4,7 +4,7 @@ const HelloWorld = () => {
   return (
     <div>
       <p>HelloWorld pasword-generator</p>
-      <Button className="bg-interactive p-4 rounded" label="assa" />
+      <Button label="test" variant="link" />
     </div>
   );
 };
