@@ -4,6 +4,9 @@ import type { Config } from "tailwindcss";
 const config: Omit<Config, "content"> = {
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
       primary: "#0D1A26",
       secondary: "@304050",
       tertiary: "@5C6670",
