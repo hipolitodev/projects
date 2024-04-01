@@ -2,7 +2,7 @@ import cx from "classnames";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+  children?: React.ReactNode;
   variant?: "default" | "primary" | "link";
   size?: "default" | "large" | "small";
 }
@@ -13,7 +13,7 @@ const getButtonClasses = (variant: string, size: string, disabled: boolean) => {
 
   const variantClasses = {
     default: `${commonClasses} text-primary border-neutral-60`,
-    primary: `${commonClasses} text-white border-primary bg-primary`,
+    primary: `${commonClasses} text-white border-interactive bg-interactive`,
     link: `text-interactive`,
   }[variant];
 
@@ -23,11 +23,11 @@ const getButtonClasses = (variant: string, size: string, disabled: boolean) => {
     small: "px-3 py-1.5 text-sm",
   }[size];
 
-  return cx(variantClasses, sizeClasses, disabledClasses);
+  return cx("font-bold", variantClasses, sizeClasses, disabledClasses);
 };
 
 const Button = ({
-  label,
+  children,
   variant = "default",
   size = "default",
   ...props
@@ -40,7 +40,7 @@ const Button = ({
         props.className
       )}
     >
-      {label}
+      {children}
     </button>
   );
 };

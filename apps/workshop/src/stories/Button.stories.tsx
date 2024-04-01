@@ -10,35 +10,35 @@ const Template: StoryFn<ButtonProps> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Default Button",
+  children: "Default Button",
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: "Primary Button",
+  children: "Primary Button",
   variant: "primary",
 };
 
 export const Link = Template.bind({});
 Link.args = {
-  label: "Link Button",
+  children: "Link Button",
   variant: "link",
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  label: "Large Button",
+  children: "Large Button",
   size: "large",
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  label: "Small Button",
+  children: "Small Button",
   size: "small",
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: "Disabled Button",
+  children: "Disabled Button",
   disabled: true,
 };
