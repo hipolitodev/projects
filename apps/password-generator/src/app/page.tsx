@@ -1,4 +1,4 @@
-import Button from "@repo/ui/Button";
+import Button from "@hipolitodev/ui/Button";
 
 const HelloWorld = () => {
   return (

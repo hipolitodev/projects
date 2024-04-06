@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from "@storybook/react";
-import Button, { ButtonProps } from "@repo/ui/Button";
+import Button, { ButtonProps } from "@hipolitodev/ui/Button";
 
 export default {
   title: "Components/Button",
