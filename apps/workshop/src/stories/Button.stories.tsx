@@ -19,26 +19,14 @@ Primary.args = {
   variant: "primary",
 };
 
-export const Link = Template.bind({});
-Link.args = {
-  children: "Link Button",
-  variant: "link",
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: "Secondary Button",
+  variant: "secondary",
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  children: "Large Button",
-  size: "large",
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  children: "Small Button",
-  size: "small",
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  children: "Disabled Button",
-  disabled: true,
+export const Soft = Template.bind({});
+Soft.args = {
+  children: "Soft Button",
+  variant: "soft",
 };

@@ -6,7 +6,8 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./Button": "./src/Button.tsx"
+    "./Button": "./src/Button/index.tsx",
+    "./Input": "./src/Input/index.tsx"
   },
   "license": "MIT",
   "scripts": {
